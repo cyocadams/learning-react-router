@@ -13,22 +13,25 @@ class Login extends Component {
         super(props)
     }
 
+    getUsernameInput() {
+        return this.props.login_email.length > 1
+    }
+
+    getPasswordInput() {
+        return this.props.login_password.length > 1
+    }
+
     render() {
         const {
                   setLoginEmail,
                   setLoginPassword,
                   setLoginVisibility,
-                  setTopBarVisibility,
-                  setWhySignUpVisibility,
-                  setRegistrationFormVisibility,
-                  setForumDiscussionVisibility,
                   login_email,
                   login_password
               } = this.props
 
         return (
               <div>
-                  <div className="logo"></div>
                   <div className="login-block">
                       <h1>Login</h1>
                       <input
@@ -48,8 +51,11 @@ class Login extends Component {
                           }}
                       />
                       <button
-                          onClick={event => {
-                              // do stuff
+                          onClick={() => {
+                              if(this.getUsernameInput() && this.getPasswordInput()) {
+                                  setLoginVisibility(false)
+                                  location.href='/home'
+                              }
                           }} >
                           Submit
                       </button>
@@ -57,14 +63,6 @@ class Login extends Component {
               </div>
         )
     }
-}
-
-type LoginType = {
-    login_email: string,
-    login_password: string,
-    setLoginEmail: Function,
-    setLoginPassword: Function,
-    setLoginVisibility: Function
 }
 
 const mapStateToProps = state => ({

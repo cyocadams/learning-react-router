@@ -7,7 +7,7 @@ import { login_form } from "../reducers/reducer_login"
 
 export const configureStore = () => {
     const reducers = combineReducers({
-        login: login_form,
+        login: login_form
     })
 
     return createStore(
