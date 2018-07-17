@@ -1,27 +1,20 @@
 "use strict"
-import React, { Component } from "react"
+import React, {Component} from "react"
 import Header from "./Header/Header.js"
-import { BrowserRouter as Router, Route } from "react-router-dom"
+import {BrowserRouter as Router, Route, Link} from "react-router-dom"
 
 const Test = () => <h1>Test</h1>
 
 const About = () => <h1>About</h1>
 
 class App extends Component {
-    render()
-    {
-        return (
-            <Router>
-                <div>
-                    <Route path="/" component={ Test } />
-                    <Route path="/about" component={ About } />
-                </div>
-            </Router>
-        )
+    render() {
+        return [
+            <Link key={"one"} to={"/about"}>I always get rendered</Link>,
+            <Route key={"two"} exact path = "/home" component = {Test}/>,
+            <Route key={"three"} exact path="/about" component={About}/>
+        ]
     }
-
-
-
 }
 
 export default App

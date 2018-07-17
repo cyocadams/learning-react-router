@@ -11,11 +11,10 @@ const app           = express()
 const expressValidator = require("express-validator")
 
 // Routes
-const home          = require("./server/routes/home")
-const about         = require("./server/routes/about")
+const root          = require("./routes/root")
 
 // View engine setup
-app.set("views", path.join(__dirname, "./server/views"))
+app.set("views", path.join(__dirname, "./views"))
 app.set("view engine", "ejs")
 
 // Express Validator
@@ -43,10 +42,9 @@ app.use(bodyParser.urlencoded({ // Support encoded bodies.
 app.use(cookieParser())
 
 // Set static folder
-app.use(express.static(path.join(__dirname, "src"), {maxAge: 86400000 }))
+app.use(express.static(path.join(__dirname, "../public"), {maxAge: 86400000 }))
 
-app.use(home)
-app.use(about)
+app.use(root)
 
 // Node server
 app.set("port", (process.env.PORT || 8000))

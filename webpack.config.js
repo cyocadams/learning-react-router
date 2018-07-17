@@ -1,11 +1,10 @@
 const path = require("path")
-
 module.exports = {
     mode: "development",
     entry: __dirname + "/src/index.js",
     output: {
         filename: "bundle.js",
-        path: path.resolve(__dirname, "src")
+        path: path.resolve(__dirname, "public/js")
     },
     // We are telling webpack to use "babel-loader" for .js and .jsx files
     module: {

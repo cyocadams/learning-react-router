@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack --progress --watch",
     "webpack-prod": "webpack --mode=production",
-    "webpack-dev": "webpack --mode=development"
+    "webpack-dev": "webpack --mode=development --watch --progress"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
