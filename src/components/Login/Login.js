@@ -33,17 +33,26 @@ class Login extends Component {
                       <h1>Login</h1>
                       <input
                           type="text"
-                          value=""
                           placeholder="Username"
                           id="username"
+                          onChange={event => {
+                              setLoginEmail(event.target.value)
+                          }}
                       />
                       <input
                           type="password"
-                          value=""
                           placeholder="Password"
                           id="password"
+                          onChange={event => {
+                              setLoginPassword(event.target.value)
+                          }}
                       />
-                      <button>Submit</button>
+                      <button
+                          onClick={event => {
+                              // do stuff
+                          }} >
+                          Submit
+                      </button>
                   </div>
               </div>
         )
