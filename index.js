@@ -11,7 +11,8 @@ const app           = express()
 const expressValidator = require("express-validator")
 
 // Routes
-const home          = require("./server/routes/home") // Route for rendering the main home page
+const home          = require("./server/routes/home")
+const about         = require("./server/routes/about")
 
 // View engine setup
 app.set("views", path.join(__dirname, "./server/views"))
@@ -45,6 +46,7 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, "src"), {maxAge: 86400000 }))
 
 app.use(home)
+app.use(about)
 
 // Node server
 app.set("port", (process.env.PORT || 8000))

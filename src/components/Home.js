@@ -6,7 +6,7 @@ class Home extends Component {
     render() {
         return(
             <div>
-                <Header title="Hello React Router!" />
+                <Header title="Hello React Router on Home!" />
             </div>
         )
     }
