@@ -1,12 +1,20 @@
 "use strict"
 import React, { Component } from "react"
+import Moment from "moment"
+
+const items = window.sessionStorage.getItem("data")
+const times = items.split(",")
+console.log(times)
 
 class Events extends Component {
     render() {
         return (
             <div>
                 <ul>
-                    <li><h3> July 18th, 2018 - 6:00 pm </h3></li>
+                    { times.map((time, i) => {
+                        let formatted = Moment(time).format("LL: HH:mm")
+                        return <div><li key={i}>{ formatted }</li><br /></div>
+                    }) }
                 </ul>
             </div>
         )

@@ -58,7 +58,7 @@ app.use(login)
 
 // Node server
 app.set("port", (process.env.PORT || 8000))
-const server = app.listen(app.get("port"), function() {
+app.listen(app.get("port"), function() {
     console.log("Server started on port "+ app.get("port"))
 })
 
@@ -128,12 +128,13 @@ function listEvents(auth) {
     calendar.events.list({
         calendarId: 'primary',
         timeMin: (new Date()).toISOString(),
-        maxResults: 10,
+        maxResults: 100,
         singleEvents: true,
         orderBy: 'startTime',
     }, (err, res) => {
         if (err) return console.log('The API returned an error: ' + err);
         const events = res.data.items;
+        console.log(events)
         global.events = events
 
         // if (events.length) {
@@ -145,5 +146,5 @@ function listEvents(auth) {
         // } else {
         //     console.log('No upcoming events found.');
         // }
-    });
+    })
 }

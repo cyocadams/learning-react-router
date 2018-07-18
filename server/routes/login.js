@@ -11,7 +11,7 @@ router.post("/login", async (req, res) => {
         const event = global.events.map((event, i) => {
             return event.start.dateTime || event.start.date
         })
-        console.log(event)
+        // console.log(event)
         res.setHeader('Content-Type', 'application/json')
         res.send(JSON.stringify({ data: event }))
 
