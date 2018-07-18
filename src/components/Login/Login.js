@@ -7,6 +7,7 @@ import {
     setLoginHasError,
     setLoginVisibility
 } from "../../actions/login"
+import Error from "../Error/Error"
 
 class Login extends Component {
     constructor(props) {
@@ -26,8 +27,10 @@ class Login extends Component {
                   setLoginEmail,
                   setLoginPassword,
                   setLoginVisibility,
+                  setLoginHasError,
                   login_email,
-                  login_password
+                  login_password,
+                  login_has_error
               } = this.props
 
         return (
@@ -42,6 +45,7 @@ class Login extends Component {
                               setLoginEmail(event.target.value)
                           }}
                       />
+                      { login_has_error ? <Error /> : null }
                       <input
                           type="password"
                           placeholder="Password"
@@ -55,6 +59,8 @@ class Login extends Component {
                               if(this.getUsernameInput() && this.getPasswordInput()) {
                                   setLoginVisibility(false)
                                   location.href='/home'
+                              } else {
+                                  setLoginHasError(true)
                               }
                           }} >
                           Submit
@@ -68,7 +74,8 @@ class Login extends Component {
 const mapStateToProps = state => ({
     login_email: state.login.login_email,
     login_password: state.login.login_password,
-    login_visible: state.login.login_visible
+    login_visible: state.login.login_visible,
+    login_has_error: state.login.login_has_error
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -78,8 +85,8 @@ const mapDispatchToProps = dispatch => ({
     setLoginPassword: login_password => {
         dispatch(setLoginPassword(login_password))
     },
-    setLoginHasError: login_error => {
-        dispatch(setLoginHasError(login_error))
+    setLoginHasError: login_has_error => {
+        dispatch(setLoginHasError(login_has_error))
     },
     setLoginVisibility: login_visible => {
         dispatch(setLoginVisibility(login_visible))

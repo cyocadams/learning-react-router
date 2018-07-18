@@ -31,13 +31,13 @@ export const setLoginPassword = (login_password : string) : SetLoginPasswordType
 
 type SetLoginHasErrorType = {
     type: string,
-    login_error: boolean
+    login_has_error: boolean
 }
 
-export const setLoginHasError = (login_error : boolean) : SetLoginHasErrorType => {
+export const setLoginHasError = (login_has_error : boolean) : SetLoginHasErrorType => {
     return {
         type: SET_LOGIN_HAS_ERROR,
-        login_error
+        login_has_error
     }
 }
 
