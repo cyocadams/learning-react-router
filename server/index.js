@@ -12,6 +12,7 @@ const expressValidator = require("express-validator")
 
 // Routes
 const root          = require("./routes/root")
+const login         = require("./routes/login")
 
 // View engine setup
 app.set("views", path.join(__dirname, "./views"))
@@ -45,6 +46,7 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, "../public"), {maxAge: 86400000 }))
 
 app.use(root)
+app.use(login)
 
 // Node server
 app.set("port", (process.env.PORT || 8000))

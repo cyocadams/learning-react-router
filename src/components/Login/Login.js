@@ -1,5 +1,7 @@
 "use strict"
 import React, { Component } from "react"
+import axios from "axios"
+
 import { connect } from "react-redux"
 import {
     setLoginEmail,
@@ -20,6 +22,30 @@ class Login extends Component {
 
     getPasswordInput() {
         return this.props.login_password.length > 1
+    }
+
+    handleSubmit() {
+        console.log("in here")
+        event.preventDefault()
+
+        const username = {
+            name: this.props.login_email
+        }
+
+        const pass = {
+            password: this.props.login_password
+        }
+
+        axios.post("/login", {
+            username: username.name,
+            password: pass.password,
+        })
+            .then(function (response) {
+                console.log(response)
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
     }
 
     render() {
@@ -57,8 +83,9 @@ class Login extends Component {
                       <button
                           onClick={() => {
                               if(this.getUsernameInput() && this.getPasswordInput()) {
-                                  setLoginVisibility(false)
-                                  location.href='/home'
+                                  // setLoginVisibility(false)
+                                  // location.href='/home'
+                                  this.handleSubmit()
                               } else {
                                   setLoginHasError(true)
                               }
