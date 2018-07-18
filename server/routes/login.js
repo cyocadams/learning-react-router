@@ -5,11 +5,10 @@ const router  = express.Router()
 
 router.post("/login", async (req, res) => {
     try {
-        const keys_array = Object.keys(req.body)
-        const properties = JSON.parse(keys_array[0])
-
-        console.log(properties)
-        res.json("success!")
+        console.log(req.body)
+        console.log(req.body["username"])
+        console.log(req.body["password"])
+        res.json({"success": "successfully processed!"})
     } catch (err) {
         res.json({
             "error": "something went wrong"
