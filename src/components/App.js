@@ -5,6 +5,7 @@ import { connect } from "react-redux"
 import Header from "./Header/Header.js"
 import Login from "./Login/Login.js"
 import UpcomingEvents from "./UpcomingEvents/UpcomingEvents.js"
+import Events from "./Events/Events.js"
 import { Route } from "react-router-dom"
 
 class App extends Component<AppProps, void> {
@@ -13,10 +14,11 @@ class App extends Component<AppProps, void> {
 
         return [
             <Route key={"index"} exact path="/" render={() => login_visible ? <Login /> : null } />,
-            <Route key={"home"} exact path="/home" render={props =>
+            <Route key={"home"} exact path="/home" render={() =>
                 <div>
                     <Header title="Home" />
                     <UpcomingEvents title="Your Upcoming Events" />
+                    <Events />
                 </div> } />,
             <Route key={"about"} exact path="/about" render={() => <Header title="About" />} />
         ]
