@@ -1,9 +1,10 @@
 // @flow
 "use strict"
-export const SET_LOGIN_EMAIL      : string = "SET_LOGIN_EMAIL"
-export const SET_LOGIN_PASSWORD   : string = "SET_LOGIN_PASSWORD"
-export const SET_LOGIN_HAS_ERROR  : string = "SET_LOGIN_HAS_ERROR"
-export const SET_LOGIN_VISIBILITY : string = "SET_LOGIN_VISIBILITY"
+export const SET_LOGIN_EMAIL        : string = "SET_LOGIN_EMAIL"
+export const SET_LOGIN_PASSWORD     : string = "SET_LOGIN_PASSWORD"
+export const SET_LOGIN_HAS_ERROR    : string = "SET_LOGIN_HAS_ERROR"
+export const SET_LOGIN_VISIBILITY   : string = "SET_LOGIN_VISIBILITY"
+export const SET_SPINNER_VISIBILITY : string = "SET_SPINNER_VISIBILITY"
 
 type SetLoginEmailType = {
     type: string,
@@ -50,5 +51,17 @@ export const setLoginVisibility = (login_visible : boolean) : SetLoginVisibility
     return {
         type: SET_LOGIN_VISIBILITY,
         login_visible
+    }
+}
+
+type SetSpinnerVisibilityType = {
+    type: string,
+    spinner_visible: boolean
+}
+
+export const setSpinnerVisibility = (spinner_visible : boolean) : SetSpinnerVisibilityType => {
+    return {
+        type: SET_SPINNER_VISIBILITY,
+        spinner_visible
     }
 }

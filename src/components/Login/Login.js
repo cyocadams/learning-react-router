@@ -7,9 +7,11 @@ import {
     setLoginEmail,
     setLoginPassword,
     setLoginHasError,
-    setLoginVisibility
+    setLoginVisibility,
+    setSpinnerVisibility
 } from "../../actions/login"
 import Error from "../Error/Error"
+import Spinner from "../Spinner/Spinner"
 
 class Login extends Component {
     constructor(props) {
@@ -42,6 +44,7 @@ class Login extends Component {
             .then(function (response) {
                 console.log(response)
                 setLoginVisibility(false)
+                setSpinnerVisibility(false)
                 location.href='/home'
             })
             .catch(function (error) {
@@ -53,11 +56,10 @@ class Login extends Component {
         const {
                   setLoginEmail,
                   setLoginPassword,
-                  setLoginVisibility,
                   setLoginHasError,
-                  login_email,
-                  login_password,
-                  login_has_error
+                  setSpinnerVisibility,
+                  login_has_error,
+                  spinner_visible
               } = this.props
 
         return (
@@ -84,8 +86,7 @@ class Login extends Component {
                       <button
                           onClick={() => {
                               if(this.getUsernameInput() && this.getPasswordInput()) {
-                                  // setLoginVisibility(false)
-                                  // location.href='/home'
+                                  setSpinnerVisibility(true)
                                   this.handleSubmit()
                               } else {
                                   setLoginHasError(true)
@@ -93,6 +94,7 @@ class Login extends Component {
                           }} >
                           Submit
                       </button>
+                      { spinner_visible ? <Spinner /> : null }
                   </div>
               </div>
         )
@@ -103,7 +105,8 @@ const mapStateToProps = state => ({
     login_email: state.login.login_email,
     login_password: state.login.login_password,
     login_visible: state.login.login_visible,
-    login_has_error: state.login.login_has_error
+    login_has_error: state.login.login_has_error,
+    spinner_visible: state.login.spinner_visible
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -118,6 +121,9 @@ const mapDispatchToProps = dispatch => ({
     },
     setLoginVisibility: login_visible => {
         dispatch(setLoginVisibility(login_visible))
+    },
+    setSpinnerVisibility: spinner_visible => {
+        dispatch(setSpinnerVisibility(spinner_visible))
     }
 })
 

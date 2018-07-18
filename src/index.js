@@ -9,6 +9,7 @@ import {BrowserRouter as Router, Route} from "react-router-dom"
 // css
 import "./components/Header/header.css"
 import "./components/Login/login.css"
+import "./components/Spinner/spinner.css"
 
 const store  = configureStore()
 const root = document.getElementById("root")
