@@ -12,8 +12,9 @@ router.post("/login", async (req, res) => {
             return event.start.dateTime || event.start.date
         })
         console.log(event)
-        res.setHeader('Content-Type', 'application/json');
-        res.send(JSON.stringify({ data: event }));
+        res.setHeader('Content-Type', 'application/json')
+        res.send(JSON.stringify({ data: event }))
+
     } catch (err) {
         res.json({
             "error": "something went wrong"

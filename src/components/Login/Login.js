@@ -42,7 +42,8 @@ class Login extends Component {
             password: pass.password,
         })
             .then(function (response) {
-                console.log(response)
+                const info = response.data
+                console.log(info.data[0])
                 setLoginVisibility(false)
                 location.href='/home'
             })
