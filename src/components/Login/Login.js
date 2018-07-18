@@ -44,7 +44,6 @@ class Login extends Component {
             .then(function (response) {
                 console.log(response)
                 setLoginVisibility(false)
-                setSpinnerVisibility(false)
                 location.href='/home'
             })
             .catch(function (error) {
