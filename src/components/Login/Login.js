@@ -25,7 +25,6 @@ class Login extends Component {
     }
 
     handleSubmit() {
-        console.log("in here")
         event.preventDefault()
 
         const username = {
@@ -42,6 +41,8 @@ class Login extends Component {
         })
             .then(function (response) {
                 console.log(response)
+                setLoginVisibility(false)
+                location.href='/home'
             })
             .catch(function (error) {
                 console.log(error)
