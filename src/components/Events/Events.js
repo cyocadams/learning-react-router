@@ -14,9 +14,9 @@ class Events extends Component {
                 <ul>
                     { times.map((time, i) => {
                         let formatted = Moment(time).format("LL: hh:mm A")
-                        return <div>
-                            <h3>{ summaries[i] }</h3>
-                            <li key={i}>{ formatted }</li><br />
+                        return <div key={i}>
+                            <h3><u>{ summaries[i] }</u></h3>
+                            <li>{ formatted }</li>
                         </div>
                     }) }
                 </ul>
