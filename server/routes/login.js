@@ -1,10 +1,16 @@
 "use strict"
 // Third Party Packages
-const express = require("express")
-const router  = express.Router()
+const express  = require("express")
+const router   = express.Router()
+// const CalendarApi = require("../controllers/CalendarApi")
+
 
 router.post("/login", async (req, res) => {
     try {
+        // const calendar = new CalendarApi()
+        // calendar.loadSecret()
+
+
         const event = global.events.map((event, i) => {
             return event.start.dateTime || event.start.date
         })
