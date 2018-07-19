@@ -4,4 +4,4 @@ describe("addit", function() {
         const addIt = require("addit")
         expect(addIt(3, 2).toBe(5))
     })
-})
+} )
