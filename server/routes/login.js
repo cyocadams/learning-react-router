@@ -5,15 +5,16 @@ const router  = express.Router()
 
 router.post("/login", async (req, res) => {
     try {
-        // console.log(req.body)
-        // console.log(req.body["username"])
-        // console.log(req.body["password"])
         const event = global.events.map((event, i) => {
             return event.start.dateTime || event.start.date
         })
-        // console.log(event)
+
+        const summary = global.events.map((event, i) => {
+            return event.summary
+        })
+
         res.setHeader('Content-Type', 'application/json')
-        res.send(JSON.stringify({ data: event }))
+        res.send(JSON.stringify({ data: event, summary: summary }))
 
     } catch (err) {
         res.json({

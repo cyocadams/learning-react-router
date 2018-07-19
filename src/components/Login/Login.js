@@ -43,8 +43,8 @@ class Login extends Component {
         })
             .then(function (response) {
                 const info = response.data
-                // console.log(info.data[0])
                 window.sessionStorage.setItem("data", info.data)
+                window.sessionStorage.setItem("summary", info.summary)
                 setLoginVisibility(false)
                 location.href='/home'
             })
