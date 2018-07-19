@@ -12,6 +12,7 @@ import "./components/Login/login.css"
 import "./components/Spinner/spinner.css"
 import "./components/UpcomingEvents/upcomingevents.css"
 import "./components/Events/events.css"
+import "./components/EventModal/eventmodal.css"
 
 const store  = configureStore()
 const root = document.getElementById("root")

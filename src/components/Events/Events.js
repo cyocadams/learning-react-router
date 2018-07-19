@@ -8,14 +8,15 @@ const times         = items.split(",")
 const summaries     = summary_items.split(",")
 
 class Events extends Component {
+
     render() {
         return (
             <div>
                 <ul>
                     { times.map((time, i) => {
-                        let formatted = Moment(time).format("LL: hh:mm A")
+                        const formatted = Moment(time).format("LL: hh:mm A")
                         return <div key={i}>
-                            <h3><u>{ summaries[i] }</u></h3>
+                            <h3><u><a href="/event-modal">{ summaries[i] }</a></u></h3>
                             <li>{ formatted }</li>
                         </div>
                     }) }

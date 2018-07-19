@@ -5,6 +5,7 @@ import { connect } from "react-redux"
 import Header from "./Header/Header.js"
 import Login from "./Login/Login.js"
 import UpcomingEvents from "./UpcomingEvents/UpcomingEvents.js"
+import EventModal from "./EventModal/EventModal.js"
 import Events from "./Events/Events.js"
 import { Route } from "react-router-dom"
 
@@ -20,6 +21,7 @@ class App extends Component<AppProps, void> {
                     <UpcomingEvents title="Your Upcoming Events" />
                     <Events />
                 </div> } />,
+            <Route key={"event-modal"} exact path="/event-modal" render={() => <EventModal />} />,
             <Route key={"about"} exact path="/about" render={() => <Header title="About" />} />
         ]
     }

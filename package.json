@@ -4,6 +4,7 @@
   "description": "Learning react router v4",
   "main": "index.js",
   "scripts": {
+    "test": "jest",
     "webpack": "webpack --progress --watch",
     "webpack-prod": "webpack --mode=production",
     "webpack-dev": "webpack --mode=development --watch --progress"
@@ -42,7 +43,10 @@
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^1.0.0",
+    "enzyme-adapter-react-16": "1.1.1",
+    "enzyme": "3.3.0",
     "morgan": "^1.9.0",
+    "jest": "^23.4.1",
     "style-loader": "^0.21.0",
     "webpack": "^4.12.0",
     "webpack-cli": "^3.0.3",

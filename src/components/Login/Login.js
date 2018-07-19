@@ -87,8 +87,9 @@ class Login extends Component {
                       <button
                           onClick={() => {
                               if(this.getUsernameInput() && this.getPasswordInput()) {
-                                  setSpinnerVisibility(true)
-                                  this.handleSubmit()
+                              setSpinnerVisibility(true)
+                              this.handleSubmit()
+
                               } else {
                                   setLoginHasError(true)
                               }
