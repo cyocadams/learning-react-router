@@ -27,11 +27,11 @@ let times = []
 let summaries = []
 
 if(items !== null) {
-    times         = items.split(",")
+    times = items.split(",")
 }
 
 if(summary_items !== null) {
-    summaries     = summary_items.split(",")
+    summaries = summary_items.split(",")
 }
 
 class Events extends Component {

@@ -1,13 +1,3 @@
-// function add(x, y) {
-//     return x + y
-// }
-//
-// function subtract(x, y) {
-//     return x - y
-// }
-//
-// module.exports = add
-
 const functions = {
     add: (num1, num2) => num1 + num2,
     isNull: () => null,

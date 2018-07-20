@@ -10,7 +10,6 @@ router.post("/login", async (req, res) => {
         // const calendar = new CalendarApi()
         // calendar.loadSecret()
 
-
         const event = global.events.map((event, i) => {
             return event.start.dateTime || event.start.date
         })
