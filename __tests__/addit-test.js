@@ -1,7 +1,13 @@
-jest.dontMock("addit.js")
-describe("addit", function() {
-    it("it adds two numbers", function() {
-        const addIt = require("addit")
-        expect(addIt(3, 2).toBe(5))
-    })
-} )
+const functions = require("learning-react-router/addit")
+
+test("Adds 2 + 2 to equal 4", () => {
+    expect(functions.add(2, 2)).toBe(4)
+})
+
+test("Adds 2 + 2 to NOT equal 5", () => {
+    expect(functions.add(2, 2)).not.toBe(5)
+})
+
+test("Should be null",  () => {
+    expect(functions.isNull()).toBeNull()
+})

@@ -2,10 +2,37 @@
 import React, { Component } from "react"
 import Moment from "moment"
 
+/**
+ *
+ * @type {string | null}
+ */
 const items         = window.sessionStorage.getItem("data")
+
+/**
+ *
+ * @type {string | null}
+ */
 const summary_items = window.sessionStorage.getItem("summary")
-const times         = items.split(",")
-const summaries     = summary_items.split(",")
+
+/**
+ *
+ * @type {Array}
+ */
+let times = []
+
+/**
+ *
+ * @type {Array}
+ */
+let summaries = []
+
+if(items !== null) {
+    times         = items.split(",")
+}
+
+if(summary_items !== null) {
+    summaries     = summary_items.split(",")
+}
 
 class Events extends Component {
 
