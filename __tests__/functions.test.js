@@ -34,6 +34,6 @@ test("There is no I in team", () => {
 })
 
 test("Admin should be in usernames", () => {
-    usernames = ["John", "Karen", "Admin"]
+    const usernames = ["John", "Karen", "Admin"]
     expect(usernames).toContain("Admin")
 })
